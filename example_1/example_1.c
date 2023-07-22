@@ -41,6 +41,22 @@ int main()
      */
     LLVMBasicBlockRef entry = LLVMAppendBasicBlock(answer, "entry");
 
+    // creating a builder - imagine this as lot of helper functions that just write the and concatenate the final ll file
+    LLVMBuilderRef builder = LLVMCreateBuilder();
+    LLVMPositionBuilderAtEnd(builder, entry);
+
+    // int type 32 (size_t LLVMInt64Type)
+    LLVMTypeRef i32_type = LLVMInt32Type();
+
+
+    LLVMValueRef local_var = LLVMBuildAlloca(builder, i32_type, "vogsphere");
+    LLVMBuildStore(builder, LLVMConstInt(i32_type, 42, 0), local_var);
+    LLVMValueRef returned_value = LLVMBuildLoad2(builder, LLVMInt32Type() ,local_var, "vogsphere");
+    LLVMBuildRet(builder, returned_value);
+
+
+
+
     /**
      * @brief Writes a module to the specified path.
      *   int LLVMWriteBitcodeToFile	(	LLVMModuleRef 	M,
@@ -48,7 +64,6 @@ int main()
      *   )	
      * 
      */
-    
     if (LLVMWriteBitcodeToFile(mod, "example_1.bc") != 0)
     {
         fprintf(stderr, "error writing bitcode to file, skipping\n");

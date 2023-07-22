@@ -90,3 +90,59 @@ entry:
 }
 
 ```
+### 4: retrun 42
+creating an int type variable and store 42 in it. then return it.
+```c
+    // creating a builder - imagine this as lot of helper functions that just write the and concatenate the final ll file
+    LLVMBuilderRef builder = LLVMCreateBuilder();
+    LLVMPositionBuilderAtEnd(builder, entry);
+
+    // int type 32 (size_t LLVMInt64Type)
+    LLVMTypeRef i32_type = LLVMInt32Type();
+
+
+    LLVMValueRef local_var = LLVMBuildAlloca(builder, i32_type, "vogsphere");
+    LLVMBuildStore(builder, LLVMConstInt(i32_type, 42, 0), local_var);
+    LLVMValueRef returned_value = LLVMBuildLoad2(builder, LLVMInt32Type() ,local_var, "vogsphere");
+    LLVMBuildRet(builder, returned_value);
+
+```
+Compiling this code
+```bash
+$ python ../llvm_tool.py -filename example_1.c 
+$ ./example_1.exec
+$ llvm-dis-14 example_1.bc 
+```
+The LLVM IR:
+```ll
+; ModuleID = 'example_1.bc'
+source_filename = "my_answer"
+
+define i32 @answer() {
+entry:
+  %vogsphere = alloca i32, align 4
+  store i32 42, i32* %vogsphere, align 4
+  %vogsphere1 = load i32, i32* %vogsphere, align 4
+  ret i32 %vogsphere1
+}
+
+```
+lets create another ``C`` [main](/example_1/main.c) to test out code.
+```c
+#include <stdio.h>
+
+int     answer();
+
+int main()
+{
+    int a = answer();
+    printf("%d\n", a);
+}
+```
+compiling the ``bc`` file
+```bash
+$ clang main.c example_1.bc
+$ ./a.out
+42
+```
+**Voila!**

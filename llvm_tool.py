@@ -34,6 +34,7 @@ def execute_command(command):
 if __name__ == "__main__":
     cc = "gcc"
     llvm_cflags = execute_command(["llvm-config-14" ,"--cflags"])
+    llvm_cflags = llvm_cflags.replace("\n"," ")
     ld = "g++"  #Because this module includes C++ files, we need to use a C++ compiler for linking.
     ld_flags = execute_command("llvm-config-14 --libs --cflags --ldflags core analysis executionengine MCJIT interpreter native".split(' '))
     ld_flags += " -std=c++14   -fno-exceptions "
