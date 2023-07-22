@@ -41,7 +41,14 @@ int main()
      */
     LLVMBasicBlockRef entry = LLVMAppendBasicBlock(answer, "entry");
 
-    // Write out bitcode to file
+    /**
+     * @brief Writes a module to the specified path.
+     *   int LLVMWriteBitcodeToFile	(	LLVMModuleRef 	M,
+     *   const char * 	Path 
+     *   )	
+     * 
+     */
+    
     if (LLVMWriteBitcodeToFile(mod, "example_1.bc") != 0)
     {
         fprintf(stderr, "error writing bitcode to file, skipping\n");
