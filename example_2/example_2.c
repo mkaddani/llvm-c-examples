@@ -39,6 +39,14 @@ int main()
     LLVMPositionBuilderAtEnd(builder, entry_minus);
     tmp = LLVMBuildSub(builder, LLVMGetParam(minus_function, 0), LLVMGetParam(minus_function, 1), "tmp");
     LLVMBuildRet(builder, tmp);
+// --------------------------------------------- MULTIPLICATION FUNCTION ------------------------------------------------------------------
+    LLVMValueRef mult_function = LLVMAddFunction(mod, "mult", func_type);
+    LLVMBasicBlockRef entry_mult = LLVMAppendBasicBlock(mult_function, "entry_mult");
+    LLVMPositionBuilderAtEnd(builder, entry_mult);
+    tmp = LLVMBuildMul(builder, LLVMGetParam(mult_function, 0), LLVMGetParam(mult_function, 1), "tmp");
+    LLVMBuildRet(builder, tmp);
+
+
 
 
 

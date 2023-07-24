@@ -12,3 +12,9 @@ entry_minus:
   %tmp = sub i32 %0, %1
   ret i32 %tmp
 }
+
+define i32 @mult(i32 %0, i32 %1) {
+entry_mult:
+  %tmp = mul i32 %0, %1
+  ret i32 %tmp
+}

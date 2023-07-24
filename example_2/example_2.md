@@ -67,3 +67,38 @@ $ ./a.out
 >sum is 84
 >minus is 0
 ```
+### Other Builder Arithmetics
+You can find [here](https://llvm.org/doxygen/group__LLVMCCoreInstructionBuilder.html) More functions.
+```c
+LLVMValueRef 	LLVMBuildAdd (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildNSWAdd (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildNUWAdd (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildFAdd (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildSub (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildNSWSub (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildNUWSub (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildFSub (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildMul (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildNSWMul (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildNUWMul (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildFMul (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildUDiv (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildExactUDiv (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildSDiv (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+ 
+LLVMValueRef 	LLVMBuildExactSDiv (LLVMBuilderRef, LLVMValueRef LHS, LLVMValueRef RHS, const char *Name)
+```
