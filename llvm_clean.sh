@@ -13,4 +13,4 @@ echo $CFLAGS
 echo $LD
 echo $LDFLAGS
 
-rm *.o *.exec *.bc
+rm *.o *.exec *.bc *.out
