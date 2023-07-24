@@ -6,6 +6,7 @@
 - [LLVM GitHub Repository](https://github.com/llvm/llvm-project)
 - [LLVM Hello](https://github.com/MWGuy/llvm-hello)
 - [LLVM C examples](https://github.com/wickedchicken/llvm-c-example)
+- [LLVM C tuto](https://www.pauladamsmith.com/blog/2015/01/how-to-get-started-with-llvm-c-api.html)
 
 ## Compiling
 - Check [this file](/llvm_tool.py) to get compiling commands and instructions.
